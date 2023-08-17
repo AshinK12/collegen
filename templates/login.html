@@ -1,0 +1,50 @@
+{% extends 'home.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-6">
+        <div class="card shadow-lg border-0 rounded-1">
+          <div class="row g-0">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 align-items-center">
+              <div class="card-body p-1 p-lg-2 text-black">
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="text-center mb-4">
+                    <h1 class="heading-name h1 fw-bold mb-0 text-primary">XYZ COLLEGE</h1>
+                  </div>
+                  <div class="text-center mb-3">
+                    <h1 class="fw-normal mb-3 pb-3 text-muted" style="letter-spacing: 2px;">Sign In</h1>
+                  </div>
+                  <div class="mb-4">
+                    <input type="text" id="form2Example17" class="form-control form-control-lg" name="username" placeholder="Username">
+                  </div>
+                  <div class="mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" placeholder="Password">
+                  </div>
+                  <div class="mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" style="font-size: 18pt; background: green;">Login</button>
+                  </div>
+                  <p class="small text-center" style="color: #393f81;">Don't have an account?
+                    <a href="{% url 'Store:register' %}" style="color: lime; text-decoration: none;">Register here</a>
+                  </p>
+                  {% for msg1 in messages %}
+                    <div class="alert alert-primary" role="alert">
+                      {{ msg1 }}
+                    </div>
+                  {% endfor %}
+                </form>
+              </div>
+            </div>
+            <div class="col-sm-2 col-lg-7 d-flex align-items-center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
